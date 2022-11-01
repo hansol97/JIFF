@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <comment>member-mapper.xml</comment>
+
+    <entry key="logIn">
+        SELECT
+               MEMBER_NO,
+               MEMBER_ID,
+               MEMBER_PWD,
+               MEMBER_NAME,
+               AGE,
+               GRADE,
+               COUNT
+          FROM
+              MEMBER
+         WHERE
+              MEMBER_ID = ?
+           AND 
+              MEMBER_PWD = ?
+    </entry>
+    
+    <entry key="updateGrade">
+        UPDATE MEMBER
+           SET GRADE = 
+         CASE 
+            WHEN COUNT >= 5 THEN 1
+            WHEN COUNT >= 3 THEN 2
+            ELSE 3
+         END
+        WHERE MEMBER_NO = ?
+    </entry>
+
+    <entry key="insertMember">
+        INSERT
+          INTO
+               MEMBER
+        VALUES
+               (
+               SEQ_MEM_NO.NEXTVAL
+              ,?
+              ,?
+              ,?
+              ,?
+              ,DEFAULT
+              ,DEFAULT
+               )
+    </entry>
+    <entry key="updateMember">
+        UPDATE
+              MEMBER
+           SET
+               MEMBER_PWD = ?,
+               AGE = ?
+         WHERE
+              MEMBER_PWD = ?                     
+    </entry>
+    </properties>

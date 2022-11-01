@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <comment>member-mapper.xml</comment>
+
+    <entry key="insertReserve">
+        INSERT INTO RESERVE
+        VALUES(SEQ_RESERVE_NO.NEXTVAL, ?, ?, ?, DEFAULT)
+    </entry>
+    <entry key="selectMovie">
+        SELECT MOVIE_NO FROM MOVIE WHERE MOVIE_NO = ? 
+    </entry>
+    <entry key="increseCount">
+        UPDATE MEMBER
+           SET COUNT = (COUNT + 1)
+         WHERE MEMBER_NO = ?
+    </entry>
+    
+    <entry key="selectReserve">
+        SELECT RESERVE_NO, MEMBER_NO, MOVIE_NO, VIEW_DATE, CANCLE_YN
+        FROM RESERVE
+        WHERE MEMBER_NO = ?
+    </entry>
+    
+    <entry key="deleteReserve">
+        UPDATE RESERVE
+           SET CANCLE_YN = 'Y'
+         WHERE RESERVE_NO = ?
+           AND CANCLE_YN = 'N'
+    </entry>
+    
+    <entry key="selectReserve">
+        SELECT RESERVE_NO FROM RESERVE WHERE RESERVE_NO = ? 
+    </entry>
+    
+    <entry key="decreseCount">
+        UPDATE MEMBER
+           SET COUNT = (COUNT - 1)
+         WHERE MEMBER_ID = ?
+    </entry>
+    
+    
+    </properties>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <comment>member-mapper.xml</comment>
+
+    <entry key="SELECTALL">
+        SELECT 
+              MOVIE_NO,
+              TITLE,
+              GENRE,
+              RATING
+          FROM  
+              MOVIE  
+              
+    </entry>
+    
+    <entry key = "SELECTBYTITLE">
+        SELECT
+              MOVIE_NO,
+              TITLE,
+              GENRE,
+              RATING
+         FROM
+              MOVIE
+        WHERE 
+              TITLE LIKE ?        
+    </entry>
+    
+    <entry key = "SELECTBYGENRE">
+        SELECT
+             MOVIE_NO,
+             TITLE,
+             GENRE,
+             RATING
+        FROM 
+             MOVIE
+       WHERE
+            GENRE = ?                
+    
+    </entry>
+    </properties>
